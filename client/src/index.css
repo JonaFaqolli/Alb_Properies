@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap');
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --geo-bg: #0a0c0f;
+  --geo-panel: #111418;
+  --geo-border: #1e2530;
+  --geo-accent: #00e5a0;
+  --geo-accent2: #0066ff;
+  --geo-text: #c8d4e0;
+  --geo-dim: #5a6a7a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--geo-bg);
+  color: var(--geo-text);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* MapLibre overrides */
+.maplibregl-ctrl-attrib {
+  background: rgba(10, 12, 15, 0.8) !important;
+  color: var(--geo-dim) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 10px !important;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--geo-accent) !important;
+}
+
+.maplibregl-popup-content {
+  background: var(--geo-panel) !important;
+  border: 1px solid var(--geo-border) !important;
+  border-radius: 4px !important;
+  padding: 0 !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  color: var(--geo-text) !important;
+  min-width: 220px;
+  max-width: 320px;
+}
+
+.maplibregl-popup-tip {
+  border-top-color: var(--geo-border) !important;
+}
+
+.maplibregl-popup-close-button {
+  color: var(--geo-dim) !important;
+  font-size: 18px !important;
+  padding: 6px 10px !important;
+}
+
+.maplibregl-popup-close-button:hover {
+  color: var(--geo-accent) !important;
+  background: transparent !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--geo-bg); }
+::-webkit-scrollbar-thumb { background: var(--geo-border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--geo-muted); }
+
+/* Panel fade-in */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.panel-in {
+  animation: panelIn 0.3s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.25s ease forwards;
+}
+
+/* Pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.5s ease infinite;
+}
