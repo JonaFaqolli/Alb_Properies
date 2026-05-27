@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env.local
+
+# Large data files — keep locally, do not push
+server/data/
+server/uploads/
